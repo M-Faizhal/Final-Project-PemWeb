@@ -5,6 +5,7 @@ $db_koneksi = new mysqli("localhost", "root", "", "db_hphub");
 if ($db_koneksi->connect_error) {
     die("Connection failed: " . $db_koneksi->connect_error);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +66,7 @@ if ($db_koneksi->connect_error) {
                             </div>
                             <button class="btn btn-primary" name="login">Login</button>
                             <hr />
-                            Daftar Admin <a href="registration.html">Klik Disini</a>
+                            Daftar Admin <a href="registration.php">Klik Disini</a>
                         </form>
                         <?php 
                         if (isset($_POST['login'])) {
