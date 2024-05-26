@@ -43,6 +43,7 @@ if (!isset($_SESSION["keranjang"]) || !is_array($_SESSION["keranjang"])) {
                     <tr>
                         <th>No</th>
                         <th>Produk</th>
+                        <th>Gambar</th>
                         <th>Harga</th>
                         <th>Jumlah</th>
                         <th>SubHarga</th>
@@ -60,6 +61,7 @@ if (!isset($_SESSION["keranjang"]) || !is_array($_SESSION["keranjang"])) {
                         <tr>
                             <td><?php echo $nomor; ?></td>
                             <td><?php echo $pecah["nama_produk"]; ?></td>
+                            <td><img src="admin/foto_produk/<?php echo $pecah["foto_produk"]; ?>" width="100"></td>
                             <td>Rp. <?php echo number_format($pecah["harga_produk"]); ?></td>
                             <td><?php echo $jumlah; ?></td>
                             <td>Rp. <?php echo number_format($subharga); ?></td>
