@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Poppins&display=swap');
+
+:root{
+    --lg-font: 'Kaisei Tokumin', serif;
+    --sm-font: 'Poppins', sans-serif;
+    --primary-color: #87CEFA;
+}
+
+body {
+    font-family: var(--sm-font);
+}
+
+.bg-primary{
+    background-color: var(--primary-color)!important;
+}
+
+/* Navigation Bar */
+
+.navbar{
+    box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0);
+}
+
+.navbar-brand img{
+    width: 30px;
+}
+
+.navbar-brand span{
+    letter-spacing: 2px;
+    font-family: var(--lg-font);
+}
+
+.nav-link:hover{
+    color: var(--primary-color)!important;
+}
+
+.nav-item{
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.card-custom{
+    max-width: 18rem;
+}
+
+.product-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.product-item {
+    flex: 0 0 auto;
+    width: 15%; /* Adjust the width as needed */
+    margin: 10px;
+}
+.product-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Queries */
+
+@media(min-width: 992px){
+    .nav-item{
+        border-bottom: none;
+    }
+}
