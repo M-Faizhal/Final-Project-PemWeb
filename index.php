@@ -27,18 +27,25 @@
             </a>
 
             <div class="order-lg-2">
-                <button type="button" class="btn position-relative">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
-                </button>
-                <button type="button" class="btn position-relative">
-                    <i class="fa fa-heart"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">2</span>
-                </button>
-                <button type="button" class="btn position-relative">
-                    <i class="fa fa-search"></i>
-                </button>
+                <a href="keranjang.php">
+                    <button type="button" class="btn position-relative">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                    </button>
+                </a>
+                <a href="link-ke-favorites">
+                    <button type="button" class="btn position-relative">
+                        <i class="fa fa-heart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                    </button>
+                </a>
+                <a href="link-ke-search">
+                    <button type="button" class="btn position-relative">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </a>
             </div>
+
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -47,7 +54,7 @@
             <div class="collapse navbar-collapse order-lg-1" id="navMenu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item px-2 py-2"> 
-                        <a class="nav-link text-uppercase" href="">Home</a>
+                        <a class="nav-link text-uppercase" href="index.php">Home</a>
                     </li>
                     <li class="nav-item px-2 py-2"> 
                         <a class="nav-link text-uppercase" href="">Categories</a>
@@ -62,7 +69,7 @@
                         <a class="nav-link text-uppercase" href="">About Us</a>
                     </li>
                     <li class="nav-item px-2 py-2 border-0"> 
-                        <a class="nav-link text-uppercase" href="">Login</a>
+                        <a class="nav-link text-uppercase" href="login.php">Login</a>
                     </li>
                 </ul>
             </div>

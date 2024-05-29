@@ -1,121 +1,152 @@
 <?php
 session_start();
-$db_koneksi = new mysqli("localhost","root","","db_hphub");
+$db_koneksi = new mysqli("localhost", "root", "", "db_hphub");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | HPhub</title>
-    <link rel="stylesheet" href="admin/assets/css/bootstrap.css">
-    <!-- BOOTSTRAP STYLES-->
-    <link href="admin/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <link href="admin/assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- MORRIS CHART STYLES-->
-    <link href="admin/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- CUSTOM STYLES-->
-    <link href="admin/assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5.3.3/dist/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding-top: 150px;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="keranjang.php">Keranjang</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php">
+            <img src="img/logo.png" style="width: 75px; height: 75px" alt="">
+            <span class="fw-lighter ms-2">Tech Zone</span>
+        </a>
 
-                <?php if (isset($_SESSION["pelanggan"])): ?>
-                    <li><a href="logout.php">Logout</a></li>
+        <div class="order-lg-2">
+            <a href="keranjang.php">
+                <button type="button" class="btn position-relative">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                </button>
+            </a>
+            <a href="link-ke-favorites">
+                <button type="button" class="btn position-relative">
+                    <i class="fa fa-heart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                </button>
+            </a>
+            <a href="link-ke-search">
+                <button type="button" class="btn position-relative">
+                    <i class="fa fa-search"></i>
+                </button>
+            </a>
+        </div>
 
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <?php else: ?>
-                    <li><a href="login.php">Login</a></li>
-                <?php endif ?>
-
-                
-                <li><a href="checkout.php">Checkout</a></li>
+        <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+            <ul class="navbar-nav mx-auto text-center">
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase" href="index.php">Home</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase" href="">Categories</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase" href="">Product</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase" href="">Specials</a>
+                </li>
+                <li class="nav-item px-2 py-2">
+                    <a class="nav-link text-uppercase" href="">About Us</a>
+                </li>
+                <li class="nav-item px-2 py-2 border-0">
+                    <a class="nav-link text-uppercase" href="login.php">Login</a>
+                </li>
             </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header text-center">
+                    <h2>Login Pelanggan</h2>
+                    <p>Silahkan Masuk</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3 input-group">
+                            <span class="input-group-text">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3 input-group">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Ingat Aku</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <a href="#" class="text-decoration-none">Lupa Password</a>
+                        </div>
+                        <button class="btn btn-primary w-100" name="login">Login</button>
+                        <hr>
+                        <div class="text-center">
+                            Daftar Pelanggan <a href="register.php" class="text-decoration-none">Klik Disini</a>
+                        </div>
+                    </form>
+                    <?php
+                    if (isset($_POST['login'])) {
+                        $email = $_POST["email"];
+                        $password = $_POST["password"];
+                        $ambil = $db_koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password_pelanggan='$password'");
 
-    <div class="container">
-        <div class="row text-center">
-            <div class="cool-md-12">
-                <br /><br />
-                <h2>Login Pelanggan</h2>
-                <h5>Silahkan Masuk</h5>
-                <br />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <strong>Login</strong>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" method="POST">
-                            <br/>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-envelope"></i>
-                                </span>
-                                <input type="email" class="form-control" name="email" placeholder="email">
-                            </div>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                                <input type="password" class="form-control" name="password" placeholder="password">
-                            </div>
-                            <div class="form-group">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" /> Ingat Aku
-                                </label>
-                                <span class="pull-right">
-                                    <a href="#">Lupa Password</a>
-                                </span>
-                            </div>
-                            <button class="btn btn-primary" name=login>Login</button>
-                            <hr/>
-                            Daftar Pelanggan <a href="register.php">Klik Disini</a>
-                        </form>                       
-                        <?php
-                        if(isset($_POST['login']))
-                        {
-                            $email = $_POST["email"];
-                            $password = $_POST["password"];
-                            $ambil = $db_koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password_pelanggan='$password'");
+                        $akunyangcocok = $ambil->num_rows;
 
-                            $akunyangcocok = $ambil->num_rows;
-
-                            if ($akunyangcocok== 1)
-                            {
-                                $akun = $ambil->fetch_assoc();
-
-                                $_SESSION["pelanggan"] = $akun;
-                                echo "<div class='alert alert-info'>Login Berhasil</div>";
-                                echo "<script>location='checkout.php';</script>";
-                            }
-                            else
-                            {
-                                echo "<div class='alert alert-danger'>Login Gagal</div>";
-                                echo "<script>location='login.php';</script>";
-                            }
+                        if ($akunyangcocok == 1) {
+                            $akun = $ambil->fetch_assoc();
+                            $_SESSION["pelanggan"] = $akun;
+                            echo "<div class='alert alert-info mt-3'>Login Berhasil</div>";
+                            echo "<script>location='checkout.php';</script>";
+                        } else {
+                            echo "<div class='alert alert-danger mt-3'>Login Gagal</div>";
+                            echo "<script>location='login.php';</script>";
                         }
-                        ?>
-                    </div>
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
-    
+</div>
 
+<!-- Bootstrap JS -->
+<script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
