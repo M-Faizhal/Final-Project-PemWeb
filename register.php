@@ -6,7 +6,6 @@ if ($db_koneksi->connect_error) {
     die("Connection failed: " . $db_koneksi->connect_error);
 }
 
-
 if (isset($_POST['register'])) {
     // Ambil data yang diinputkan dan bersihkan
     $nama = trim($_POST['nama_pelanggan']);
@@ -16,11 +15,11 @@ if (isset($_POST['register'])) {
     
     // Periksa apakah semua kolom diisi
     if (empty($nama) || empty($email) || empty($telepon) || empty($password)) {
-      echo "<script>
-              alert('Semua kolom harus diisi!');
-              document.location.href='registration.php';
-          </script>";
-      exit; // Hentikan eksekusi skrip
+        echo "<script>
+                alert('Semua kolom harus diisi!');
+                document.location.href='registration.php';
+            </script>";
+        exit; // Hentikan eksekusi skrip
     }
 
     // Menyiapkan query
@@ -28,7 +27,7 @@ if (isset($_POST['register'])) {
     $stmt = $db_koneksi->prepare($sql);
 
     if ($stmt) {
-        // bind parameter ke query
+        // Bind parameter ke query
         $stmt->bind_param("ssss", $nama, $email, $telepon, $password);
         
         // Eksekusi query untuk menyimpan ke database
@@ -52,80 +51,121 @@ if (isset($_POST['register'])) {
     }
 }
 
-
-
 $db_koneksi->close();
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | Pelanggan HPhub</title>
-    <!-- Bootstrap CSS -->
-    <link href="admin/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- Font Awesome CSS -->
-    <link href="admin/assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="admin/assets/css/custom.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+     <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5.3.3/dist/css/bootstrap.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding-top: 150px;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="keranjang.php">Keranjang</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.php">
+            <img src="img/logo.png" style="width: 75px; height: 75px" alt="">
+            <span class="fw-lighter ms-2">Tech Zone</span>
+        </a>
 
+        <div class="order-lg-2">
+            <a href="keranjang.php">
+                <button type="button" class="btn position-relative">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                </button>
+            </a>
+            <a href="favorit.php">
+                <button type="button" class="btn position-relative">
+                    <i class="fa fa-heart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                </button>
+            </a>
+            <a href="link-ke-search">
+                <button type="button" class="btn position-relative">
+                    <i class="fa fa-search"></i>
+                </button>
+            </a>
+        </div>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+            <ul class="navbar-nav mx-auto text-center">
+                <li class="nav-item px-2 py-2"> 
+                    <a class="nav-link text-uppercase" href="index.php">Home</a>
+                </li>
+                <li class="nav-item px-2 py-2"> 
+                    <a class="nav-link text-uppercase" href="">Product</a>
+                </li>
+                <li class="nav-item px-2 py-2"> 
+                    <a class="nav-link text-uppercase" href="">About Us</a>
+                </li>
                 <?php if (isset($_SESSION["pelanggan"])): ?>
-                    <li><a href="logout.php">Logout</a></li>
-
-
+                <li class="nav-item px-2 py-2 border-0">
+                    <a class="nav-link text-uppercase" href="logout.php">Logout</a>
+                </li>
                 <?php else: ?>
-                    <li><a href="login.php">Login</a></li>
+                <li class="nav-item px-2 py-2 border-0">
+                    <a class="nav-link text-uppercase" href="login.php">Login</a>
+                </li>
                 <?php endif ?>
-
-                
-                <li><a href="checkout.php">Checkout</a></li>
             </ul>
         </div>
-    </nav>
-
+    </div>
+</nav>
 
 <div class="container">
     <div class="row text-center">
-        <div class="col-md-12" >
+        <div class="col-md-12">
             <br /><br />
             <h2 style="margin-top: -1em">Daftar Pelanggan</h2>
             <h5>Silahkan Daftar</h5>
             <br />
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <strong>Login</strong>
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-sm-6 col-xs-10 offset-sm-0 offset-xs-1">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Daftar</strong>
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                     <form action="" method="POST">
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="nama_pelanggan">Nama Lengkap<font color=red>*</font></label>
                             <input class="form-control" type="text" name="nama_pelanggan" placeholder="Nama" />
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="email_pelanggan">Email<font color=red>*</font></label>
                             <input class="form-control" type="email" name="email_pelanggan" placeholder="Email" />
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="telepon_pelanggan">Telepon<font color=red>*</font></label>
                             <input class="form-control" type="text" name="telepon_pelanggan" placeholder="Telepon" />
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="password_pelanggan">Password<font color=red>*</font></label>
                             <input class="form-control" type="password" name="password_pelanggan" placeholder="Password" />
                         </div>
@@ -138,5 +178,6 @@ $db_koneksi->close();
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

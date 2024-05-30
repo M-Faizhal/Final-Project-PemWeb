@@ -13,7 +13,7 @@ if ($db_koneksi->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Admin HPhub</title>
+    <title>Login | Admin Techzone</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -56,14 +56,7 @@ if ($db_koneksi->connect_error) {
                                 </span>
                                 <input type="password" class="form-control" name="pass" placeholder="Password" />
                             </div>
-                            <div class="form-group">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" /> Ingat Aku
-                                </label>
-                                <span class="pull-right">
-                                    <a href="#">Lupa Password</a>
-                                </span>
-                            </div>
+                            
                             <button class="btn btn-primary" name="login">Login</button>
                             <hr />
                             Daftar Admin <a href="registration.php">Klik Disini</a>

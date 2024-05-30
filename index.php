@@ -33,7 +33,7 @@
                         <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
                     </button>
                 </a>
-                <a href="link-ke-favorites">
+                <a href="favorit.php">
                     <button type="button" class="btn position-relative">
                         <i class="fa fa-heart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
@@ -57,20 +57,20 @@
                         <a class="nav-link text-uppercase" href="index.php">Home</a>
                     </li>
                     <li class="nav-item px-2 py-2"> 
-                        <a class="nav-link text-uppercase" href="">Categories</a>
-                    </li>
-                    <li class="nav-item px-2 py-2"> 
                         <a class="nav-link text-uppercase" href="">Product</a>
-                    </li>
-                    <li class="nav-item px-2 py-2"> 
-                        <a class="nav-link text-uppercase" href="">Specials</a>
                     </li>
                     <li class="nav-item px-2 py-2"> 
                         <a class="nav-link text-uppercase" href="">About Us</a>
                     </li>
-                    <li class="nav-item px-2 py-2 border-0"> 
+                    <?php if (isset($_SESSION["pelanggan"])): ?>
+                    <li class="nav-item px-2 py-2 border-0">
+                        <a class="nav-link text-uppercase" href="logout.php">Logout</a>
+                    </li>
+                    <?php else: ?>
+                    <li class="nav-item px-2 py-2 border-0">
                         <a class="nav-link text-uppercase" href="login.php">Login</a>
                     </li>
+                    <?php endif ?>
                 </ul>
             </div>
         </div>
@@ -117,6 +117,7 @@
                         <p class="card-text text-center">Rp. <?php echo number_format($perproduk['harga_produk'])?></p>
                         <div class="text-center">
                             <a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn btn-primary">Beli</a>
+                            <a href="tambah_favorit.php?id=<?php echo $perproduk["id_produk"]; ?>" class="btn btn-warning">Favorit</a>
                             <a href="detail.php?id=<?php echo $perproduk["id_produk"]; ?>" class="btn btn-secondary">Detail</a>
                         </div>
                     </div>
