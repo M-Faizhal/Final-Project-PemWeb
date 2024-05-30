@@ -59,7 +59,7 @@ if (!isset($_SESSION["keranjang"]) || !is_array($_SESSION["keranjang"])) {
                         <a class="nav-link text-uppercase" href="index.php">Home</a>
                     </li>
                     <li class="nav-item px-2 py-2"> 
-                        <a class="nav-link text-uppercase" href="">Product</a>
+                        <a class="nav-link text-uppercase" href="product.php">Product</a>
                     </li>
                     <li class="nav-item px-2 py-2"> 
                         <a class="nav-link text-uppercase" href="">About Us</a>
