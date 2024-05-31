@@ -70,7 +70,7 @@ require_once 'conn.php';
                         <a class="nav-link text-uppercase" href="product.php">Product</a>
                     </li>
                     <li class="nav-item px-2 py-2"> 
-                        <a class="nav-link text-uppercase" href="">About Us</a>
+                        <a class="nav-link text-uppercase" href="about.php">About Us</a>
                     </li>
                     <?php if (isset($_SESSION["pelanggan"])): ?>
                     <li class="nav-item px-2 py-2 border-0">
