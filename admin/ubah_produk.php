@@ -1,6 +1,6 @@
 <h2>Ubah Produk</h2>
 <?php
-$db_koneksi = new mysqli("localhost", "root", "", "db_hphub"); 
+require_once 'db_koneksi.php';
 
 $ambil = $db_koneksi->query("SELECT * FROM produk WHERE id_produk='$_GET[id]'");
 $pecah = $ambil->fetch_assoc();

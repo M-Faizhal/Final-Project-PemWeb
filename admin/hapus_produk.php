@@ -1,5 +1,5 @@
 <?php
-$db_koneksi = new mysqli("localhost", "root", "", "db_hphub");
+require_once 'db_koneksi.php';
 
 if ($db_koneksi->connect_error) {
     die("Connection failed: " . $db_koneksi->connect_error);

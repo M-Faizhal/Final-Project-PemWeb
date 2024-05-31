@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db_koneksi = new mysqli("localhost", "root", "", "db_hphub");
+require_once 'conn.php';
 
 if (!isset($_SESSION["pelanggan"])) {
     echo "<script>alert('Anda Belum Login');</script>";
