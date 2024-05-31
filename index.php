@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $db_koneksi = new mysqli("localhost", "root", "", "db_hphub");
+    require_once 'conn.php';
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +39,11 @@
                         <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
                     </button>
                 </a>
-                <a href="link-ke-search">
-                    <button type="button" class="btn position-relative">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </a>
+                <div class="search-container">
+                    <input type="text" id="search" class="form-control search-input" placeholder="Cari Produk..." style="display: none;" onkeyup="cariProduk()">
+                    <i class="fa fa-search" id="search-icon" onclick="toggleSearch()"></i>
+                </div>
             </div>
-
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -153,5 +151,6 @@
 
     <script src="js/jquery-3.7.1.js"></script>
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>
