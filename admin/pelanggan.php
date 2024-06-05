@@ -19,7 +19,7 @@
             <td><?php echo $pecah['email_pelanggan']; ?></td>
             <td><?php echo $pecah['telepon_pelanggan']; ?></td>
             <td>
-                <a href="" class="class= btn btn-danger">Hapus</a>
+                <a href="hapus_pelanggan.php?id=<?php echo $pecah['id_pelanggan']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus pelanggan ini?');">Hapus</a>
             </td>
         </tr>
         <?php $nomor++; ?>

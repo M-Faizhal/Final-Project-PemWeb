@@ -126,7 +126,7 @@ require_once 'conn.php';
                             $akun = $ambil->fetch_assoc();
                             $_SESSION["pelanggan"] = $akun;
                             echo "<div class='alert alert-info mt-3'>Login Berhasil</div>";
-                            echo "<script>location='checkout.php';</script>";
+                            echo "<script>location='keranjang.php';</script>";
                         } else {
                             echo "<div class='alert alert-danger mt-3'>Login Gagal</div>";
                             echo "<script>location='login.php';</script>";

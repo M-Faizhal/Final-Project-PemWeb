@@ -1,92 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Poppins&display=swap");
 
 :root {
-	--lg-font: 'Kaisei Tokumin', serif;
-	--sm-font: 'Poppins', sans-serif;
-	--primary-color: #87cefa;
+  --lg-font: "Kaisei Tokumin", serif;
+  --sm-font: "Poppins", sans-serif;
+  --primary-color: #87cefa;
 }
 
 body {
-	font-family: var(--sm-font);
+  font-family: var(--sm-font);
 }
 
 .bg-primary {
-	background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
 
 /* Navigation Bar */
 
 .navbar {
-	box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0);
-	margin-bottom: 50px;
+  box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0);
+  margin-bottom: 50px;
 }
 
 .navbar-brand img {
-	width: 30px;
+  width: 30px;
 }
 
 .navbar-brand span {
-	letter-spacing: 2px;
-	font-family: var(--lg-font);
+  letter-spacing: 2px;
+  font-family: var(--lg-font);
 }
 
 .nav-link:hover {
-	color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
 
 .nav-item {
-	border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
 }
 
 .card-custom {
-	max-width: 18rem;
+  max-width: 18rem;
 }
 
 .product-gallery {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .product-item {
-	flex: 0 0 auto;
-	width: 15%; /* Adjust the width as needed */
-	margin: 10px;
+  flex: 0 0 auto;
+  width: 15%; /* Adjust the width as needed */
+  margin: 10px;
 }
 .product-item img {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .search-container {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .search-container i {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .search-input {
-	width: 0;
-	transition: width 0.5s ease;
-	display: inline-block;
-	-webkit-transition: width 0.5s ease;
-	-moz-transition: width 0.5s ease;
-	-ms-transition: width 0.5s ease;
-	-o-transition: width 0.5s ease;
+  width: 0;
+  transition: width 0.5s ease;
+  display: inline-block;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -ms-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
 }
 
 .search-input.visible {
-	width: 200px;
-	margin-left: 10px;
-	display: inline-block;
+  width: 200px;
+  margin-left: 10px;
+  display: inline-block;
 }
 
 /* Media Queries */
 
 @media (min-width: 992px) {
-	.nav-item {
-		border-bottom: none;
-	}
+  .nav-item {
+    border-bottom: none;
+  }
 }
