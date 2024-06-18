@@ -44,11 +44,10 @@ if (!isset($_SESSION["pelanggan"])) {
                         <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
                     </button>
                 </a>
-                <a href="link-ke-search">
-                    <button type="button" class="btn position-relative">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </a>
+                <div class="search-container">
+                    <input type="text" id="search" class="form-control search-input" placeholder="Cari Produk..." style="display: none;" onkeyup="cariProduk()">
+                    <i class="fa fa-search" id="search-icon" onclick="toggleSearch()"></i>
+                </div>
             </div>
 
 
@@ -167,6 +166,7 @@ if (!isset($_SESSION["pelanggan"])) {
                 <textarea class="form-control" name="alamat_pengiriman" rows="3" required></textarea>
             </div>
             <button class="btn btn-primary" name="checkout">Checkout</button>
+            <a href="keranjang.php" class="btn btn-secondary">Kembali</a>
         </form>
 
         <?php 

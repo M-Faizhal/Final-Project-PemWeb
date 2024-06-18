@@ -1,7 +1,16 @@
 <?php
 session_start();
 
-session_destroy();
-echo "<script>alert('Anda Logout');</script>";
-echo "<script>location='index.php'</script>";
+if (isset($_GET['confirm']) && $_GET['confirm'] == 'yes') {
+    session_destroy();
+    echo "<script>location='index.php'</script>";
+} else {
+    echo "<script>
+    if (confirm('Apakah anda yakin untuk logout?')) {
+        location.href='?confirm=yes';
+    } else {
+        location.href='index.php';
+    }
+    </script>";
+}
 ?>

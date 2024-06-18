@@ -41,11 +41,10 @@ if (!isset($_SESSION["favorit"]) || !is_array($_SESSION["favorit"])) {
                         <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
                     </button>
                 </a>
-                <a href="link-ke-search">
-                    <button type="button" class="btn position-relative">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </a>
+                <div class="search-container">
+                    <input type="text" id="search" class="form-control search-input" placeholder="Cari Produk..." style="display: none;" onkeyup="cariProduk()">
+                    <i class="fa fa-search" id="search-icon" onclick="toggleSearch()"></i>
+                </div>
             </div>
 
 
@@ -108,7 +107,7 @@ if (!isset($_SESSION["favorit"]) || !is_array($_SESSION["favorit"])) {
                             <td><img src="admin/foto_produk/<?php echo $pecah["foto_produk"]; ?>" width="100"></td>
                             <td>Rp. <?php echo number_format($pecah["harga_produk"]); ?></td>
                             <td>
-                            <a href="hapus_favorit.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm">Hapus</a>
+                                <a href="hapus_favorit.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin menghapus produk?');">Hapus</a>
                             </td>
                         </tr>
                         <?php $nomor++; ?>
@@ -123,6 +122,7 @@ if (!isset($_SESSION["favorit"]) || !is_array($_SESSION["favorit"])) {
 </section>
 
 <!-- Bootstrap JS -->
+<script src="js/search.js"></script>
 <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

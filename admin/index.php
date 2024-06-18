@@ -41,10 +41,10 @@ if (!isset($_SESSION['admin']))
                 </button>
                 <a class="navbar-brand" href="index.php">TechZone</a> 
             </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> &nbsp; <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+            <div style="color: white;
+            padding: 15px 50px 5px 50px;
+            float: right;
+            font-size: 16px;"> &nbsp; <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust" onclick="return confirm('Apakah anda yakin untuk logout?');">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
