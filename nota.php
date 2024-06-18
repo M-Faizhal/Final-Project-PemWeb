@@ -15,6 +15,22 @@ require_once 'conn.php';
     <link rel="stylesheet" href="bootstrap-5.3.3/dist/css/bootstrap.min.css">
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        .print-section, .print-section * {
+            visibility: visible;
+        }
+        .print-section {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+    }
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
@@ -69,7 +85,7 @@ require_once 'conn.php';
     </div>
 </nav>
 
-<section class="konten" style="margin-top: 100px;">
+<section class="konten print-section" style="margin-top: 100px;">
     <div class="container">
         <h2>Detail Pembelian</h2>
         <?php
@@ -139,5 +155,19 @@ require_once 'conn.php';
     </div>
 </section>
     
+<section class="konten" style="margin-top: 100px;">
+    <div class="container">
+        <!-- Tombol Cetak Nota -->
+        <button onclick="window.print();" class="btn btn-primary">Cetak Nota</button>
+        <!-- Tombol Kembali ke Halaman Utama -->
+        <a href="index.php" class="btn btn-secondary">Kembali</a>
+    </div>
+</section>
+
+    <script>
+        function cetakNota() {
+            window.print();
+        }
+    </script>
 </body>
 </html>
