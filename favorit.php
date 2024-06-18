@@ -103,7 +103,7 @@ if (!isset($_SESSION["favorit"]) || !is_array($_SESSION["favorit"])) {
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-            <div class="d-flex justify-content-between">
+            <div class="text-center">
                 <a href="index.php" class="btn btn-secondary">Tambah Lagi</a>
             </div>
         </div>
