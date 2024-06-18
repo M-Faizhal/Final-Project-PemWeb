@@ -120,6 +120,29 @@ $detail = $ambil->fetch_assoc();
                     <h2><?php echo $detail["nama_produk"] ?></h2>
                     <h4>Rp. <?php echo number_format($detail["harga_produk"]); ?></h4>
 
+                    <hr>
+
+                    <h4>Specification</h4>
+
+                    <h6>RAM : <?php echo $detail["ram"]; ?> GB</h6>
+                    <h6>ROM : <?php echo $detail["rom"]; ?>, <?php echo $detail["rom2"]; ?>, <?php echo $detail["rom3"]; ?> GB</h6>
+                    <h6>Chipset : <?php echo $detail["chispet"]; ?></h6>
+                    <h6>OS : <?php echo $detail["os"]; ?></h6>
+                    <h6>GPU : <?php echo $detail["gpu"]; ?></h6>
+
+                    <h6>Camera : <?php echo $detail["camera"]; ?></h6>
+                    <h6>Loudspeaker : <?php echo $detail["loudspeaker"]; ?></h6>
+                    <h6>Wlan : <?php echo $detail["wlan"]; ?></h6>
+                    <h6>NFC : <?php echo $detail["nfc"]; ?></h6>
+                    <h6>USB : <?php echo $detail["usb"]; ?></h6>
+                    <h6>Battery : <?php echo $detail["battery"]; ?> mAh</h6>
+                    <h6>Charging : <?php echo $detail["charging"]; ?>W</h6>
+
+                    <h6>Colors : <?php echo $detail["colors"]; ?></h6>
+                    <h6>Models : <?php echo $detail["models"]; ?></h6>
+
+                    <hr>
+
                     <form method="post">
                         <div class="form-group">
                             <div class="input-group">
@@ -140,8 +163,6 @@ $detail = $ambil->fetch_assoc();
                         echo "<script>location='keranjang.php';</script>";
                     }
                     ?>
-
-                    <p><?php echo $detail["deskripsi_produk"]; ?></p>
                 </div>
             </div>
         </div>

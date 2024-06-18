@@ -77,49 +77,37 @@ if (!isset($_SESSION["favorit"]) || !is_array($_SESSION["favorit"])) {
         </div>
     </nav>
 
-<section class="konten mt-5 pt-5">
-    <div class="container mt-5">
-        <h1 class="mb-4">Favorit Produk</h1>
-        <hr>
-        <?php if (empty($_SESSION["favorit"])): ?>
-            <p class="text-center">Tidak ada produk favorit.</p>
-        <?php else: ?>
-            <table class="table table-bordered table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>No</th>
-                        <th>Produk</th>
-                        <th>Gambar</th>
-                        <th>Harga</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $nomor = 1; ?>
+    <section class="konten mt-5 pt-5">
+        <div class="container mt-5">
+            <h1 class="mb-4">Favorit Produk</h1>
+            <hr>
+            <?php if (empty($_SESSION["favorit"])): ?>
+                <p class="text-center">Tidak ada produk favorit.</p>
+            <?php else: ?>
+                <div class="row">
                     <?php foreach ($_SESSION["favorit"] as $id_produk): ?>
                         <?php
                         $ambil = $db_koneksi->query("SELECT * FROM produk WHERE id_produk = '$id_produk'");
                         $pecah = $ambil->fetch_assoc();
                         ?>
-                        <tr>
-                            <td><?php echo $nomor; ?></td>
-                            <td><?php echo $pecah["nama_produk"]; ?></td>
-                            <td><img src="admin/foto_produk/<?php echo $pecah["foto_produk"]; ?>" width="100"></td>
-                            <td>Rp. <?php echo number_format($pecah["harga_produk"]); ?></td>
-                            <td>
-                                <a href="hapus_favorit.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin menghapus produk?');">Hapus</a>
-                            </td>
-                        </tr>
-                        <?php $nomor++; ?>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="admin/foto_produk/<?php echo $pecah["foto_produk"]; ?>" class="card-img-top" alt="<?php echo $pecah["nama_produk"]; ?>">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title"><?php echo $pecah["nama_produk"]; ?></h5>
+                                    <p class="card-text">Rp. <?php echo number_format($pecah["harga_produk"]); ?></p>
+                                    <a href="hapus_favorit.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin menghapus produk?');">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
                     <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
-        <div class="d-flex justify-content-between">
-            <a href="index.php" class="btn btn-secondary">Tambah Lagi</a>
+                </div>
+            <?php endif; ?>
+            <div class="d-flex justify-content-between">
+                <a href="index.php" class="btn btn-secondary">Tambah Lagi</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!-- Bootstrap JS -->
 <script src="js/search.js"></script>
