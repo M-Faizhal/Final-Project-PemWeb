@@ -93,11 +93,9 @@
                         <h5 class="card-title text-center"><?php echo $perproduk['nama_produk']?></h5>
                         <p class="card-text text-center">Rp. <?php echo number_format($perproduk['harga_produk'])?></p>
                         <div class="text-center">
-                            <a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn btn-danger">Beli</a>
-                            <a href="detail.php?id=<?php echo $perproduk["id_produk"]; ?>" class="btn btn-warning">Detail</a>
-                            <a href="tambah_favorit.php?id=<?php echo $perproduk["id_produk"]; ?>">
-                                <i class="fa fa-heart fa-lg"></i>
-                            </a>
+                            <a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn btn-primary">Beli</a>
+                            <a href="tambah_favorit.php?id=<?php echo $perproduk["id_produk"]; ?>" class="btn btn-warning">Favorit</a>
+                            <a href="detail.php?id=<?php echo $perproduk["id_produk"]; ?>" class="btn btn-secondary">Detail</a>
                         </div>
                     </div>
                 </div>

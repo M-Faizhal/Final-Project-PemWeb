@@ -72,6 +72,9 @@ require_once 'conn.php';
                     <a class="nav-link text-uppercase" href="about.php">About Us</a>
                 </li>
                 <?php if (isset($_SESSION["pelanggan"])): ?>
+                    <li class="nav-item px-2 py-2"> 
+                    <a class="nav-link text-uppercase" href="riwayat.php">Riwayat Belanja</a>
+                </li>
                 <li class="nav-item px-2 py-2 border-0">
                     <a class="nav-link text-uppercase" href="logout.php">Logout</a>
                 </li>
@@ -92,6 +95,20 @@ require_once 'conn.php';
         $ambil = $db_koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE pembelian.id_pembelian='$_GET[id]'");
         $detail = $ambil->fetch_assoc();
         ?>
+
+        <?php
+        $idpelangganyangbeli = $detail["id_pelanggan"];
+
+        $idpelangganyanglogin = $_SESSION["pelanggan"]["id_pelanggan"];
+
+        if ($idpelangganyangbeli!==$idpelangganyanglogin)
+        {
+            echo "<script>alert('Ini Bukan Nota Anda');</script>";
+            echo "<script>location='riwayat.php';</script>";
+            exit();
+        }
+        ?>
+
         <div class="row mb-3">
             <div class="col-md-4">
                 <h3>Pembelian</h3>
@@ -160,7 +177,7 @@ require_once 'conn.php';
         <!-- Tombol Cetak Nota -->
         <button onclick="window.print();" class="btn btn-primary">Cetak Nota</button>
         <!-- Tombol Kembali ke Halaman Utama -->
-        <a href="index.php" class="btn btn-secondary">Kembali</a>
+        <a href="riwayat.php" class="btn btn-success">Bayar</a>
     </div>
 </section>
 

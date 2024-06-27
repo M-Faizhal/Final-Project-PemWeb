@@ -157,7 +157,7 @@
         <div class = "row" style="margin-top: 150px;">
             <h1>Our Team</h1>
         </div>
-        <div class = "row justify-content-center" style="margin-top: 150px;">
+        <div class = row>
             <!-- Column 1-->
             <div class = "column">
                 <div class = "card">
@@ -222,7 +222,7 @@
                 </div>
             </div>
              <!-- Column 4-->
-             <div class = "column mt-5">
+             <div class = "column">
                 <div class = "card">
                     <div class = "img-container">
                         <img src= "./img/Pro4.jpg" alt=""/>
@@ -243,7 +243,7 @@
                 </div>
             </div>
              <!-- Column 5-->
-             <div class = "column mt-5">
+             <div class = "column">
                 <div class = "card">
                     <div class = "img-container">
                         <img src= "./img/Pro5.jpg" alt=""/>

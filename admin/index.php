@@ -104,6 +104,10 @@ if (!isset($_SESSION['admin']))
                     {
                         include 'logout.php';
                     }
+                    elseif ($_GET['halaman'] =="pembayaran")
+                    {
+                        include 'pembayaran.php';
+                    }
                 }
                 else
                 {

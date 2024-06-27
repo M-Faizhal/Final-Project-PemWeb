@@ -6,6 +6,7 @@
         <th>No</th>
         <th>Nama Pelanggan</th>
         <th>Tanggal</th>
+        <th>Status Pembelian</th>
         <th>Total</th>
         <th>Aksi</th>
         </tr>
@@ -19,10 +20,16 @@
             <td><?php echo $nomor; ?></td>
             <td><?php echo $pecah['nama_pelanggan']; ?></td>
             <td><?php echo $pecah['tanggal_pembelian']; ?></td>
+            <td><?php echo $pecah['status_pembelian']; ?></td>
             <td><?php echo $pecah['total_pembelian']; ?></td>
             <td>
                 <a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" 
                 class="btn-info btn">Detail Pembelian</a>
+
+                <?php if ($pecah['status_pembelian'] == "SUDAH LUNAS"): ?>
+                    <a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian']; ?>" class="btn btn-success">Lihat Pembayaran</a>
+
+                <?php endif ?>
             </td>
         </tr>
         <?php $nomor++; ?>
